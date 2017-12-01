@@ -18,7 +18,7 @@ GLfloat alpha = 0.0f;
 bool wired = false;
 int width, height, bpp;
 GLuint format;
-Camera cam(Vector4(0.0f, 0.0f, -1.0f, 1.0f), Vector4(0.0f, 0.0f, 0.0f, 1.0f), Vector4(0.0f, 1.0f, 0.0f, 0.0f), 1.0f, 0.5f, 0.2f, 5000.0f, 45.0f);
+Camera cam(Vector3(0.0f, 0.0f, -1.0f), Vector3(0.0f, 0.0f, 0.0f), Vector3(0.0f, 1.0f, 0.0f), 1.0f, 0.5f, 0.2f, 5000.0f, 45.0f);
 float timeLimit = 0.05f;
 float cumulativeDeltaTime = 0.0f;
 
@@ -43,7 +43,7 @@ int Init(ESContext *esContext)
 void Draw(ESContext *esContext)
 {
 	Matrix P;
-	P.SetPerspective(cam.getFov(), (GLfloat)Globals::screenWidth / Globals::screenHeight, cam.getNearBase(), cam.getFarBase());
+	P.SetPerspective(cam.getFOV(), (GLfloat)Globals::screenWidth / Globals::screenHeight, cam.getNearCam(), cam.getFarCam());
 	Matrix mvp = cam.getViewMatrix() * P;
 	Matrix m;
 	m.SetScale(0.01f, 0.01f, 0.01f);
@@ -126,11 +126,17 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 	case 'S':
 		cam.moveOz(-1);
 		break;
-	case 'A':
+	case 'D':
 		cam.moveOx(1);
 		break;
-	case 'D':
+	case 'A':
 		cam.moveOx(-1);
+		break;
+	case 'Q':
+		cam.moveOy(1);
+		break;
+	case 'E':
+		cam.moveOy(-1);
 		break;
 	case VK_UP:
 		cam.rotateOz(1);
@@ -169,8 +175,6 @@ void CleanUp()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	SceneManager sc;
-	sc.Init();
 	//identifying memory leaks
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	model;

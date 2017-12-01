@@ -221,8 +221,8 @@
     <None Include="..\Resources\Models\Woman1.nfg" />
     <None Include="..\Resources\Models\Woman2.nfg" />
     <None Include="..\Resources\RapidXML\manual.html" />
-    <None Include="..\Resources\Shaders\TriangleShaderFS.fs" />
-    <None Include="..\Resources\Shaders\TriangleShaderVS.vs" />
+    <None Include="..\Resources\Shaders\fragmentShader.fs" />
+    <None Include="..\Resources\Shaders\vertexShader.vs" />
     <None Include="..\..\Readme.doc" />
     <None Include="..\Resources\Textures\heightmap.raw" />
   </ItemGroup>

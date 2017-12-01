@@ -130,12 +130,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Resources\Shaders\TriangleShaderFS.fs">
-      <Filter>Resources\Shaders</Filter>
-    </None>
-    <None Include="..\Resources\Shaders\TriangleShaderVS.vs">
-      <Filter>Resources\Shaders</Filter>
-    </None>
     <None Include="..\..\Readme.doc" />
     <None Include="..\Resources\Models\Bila.nfg">
       <Filter>Resources\Models</Filter>
@@ -193,6 +187,12 @@
     </None>
     <None Include="..\Resources\Textures\heightmap.raw">
       <Filter>Resources\Textures</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\fragmentShader.fs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="..\Resources\Shaders\vertexShader.vs">
+      <Filter>Resources\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

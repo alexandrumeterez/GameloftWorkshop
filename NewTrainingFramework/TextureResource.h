@@ -3,6 +3,7 @@
 #include "../Utilities/utilities.h"
 struct TextureResource
 {
+	int id;
 	std::string type;
 	std::string path;
 	std::string min_filter;

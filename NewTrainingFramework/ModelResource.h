@@ -3,5 +3,6 @@
 
 struct ModelResource
 {
+	int id;
 	std::string	path;
 };

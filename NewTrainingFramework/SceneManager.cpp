@@ -112,9 +112,9 @@ void SceneManager::Init()
 			std::string camFar = cameraNode->first_node("far")->value();
 			farBase = std::atoi(camFar.c_str());
 
-			Vector4 camPos(posX, posY, posZ, 1.0f);
-			Vector4 camTarget(targetX, targetY, targetZ, 1.0f);
-			Vector4 camUp(upX, upY, upZ, 0.0f);
+			Vector3 camPos(posX, posY, posZ);
+			Vector3 camTarget(targetX, targetY, targetZ);
+			Vector3 camUp(upX, upY, upZ);
 
 			Camera *c = new Camera(camPos, camTarget, camUp, translationSpeed, rotationSpeed, nearBase, farBase, fov);
 

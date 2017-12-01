@@ -20,9 +20,10 @@ public:
 	std::map<unsigned int, ModelResource*> modelResourcesMap;
 	std::map<unsigned int, TextureResource*> textureResourcesMap;
 	std::map<unsigned int, ShaderResource*> shaderResourcesMap;
-	std::vector<Model*> loadedModels;
-	std::vector<Texture*> loadedTextures;
-	std::vector<Shader*> loadedShaders;
+
+	std::map<unsigned int, Model*> loadedModels;
+	std::map<unsigned int, Texture*> loadedTextures;
+	std::map<unsigned int, Shader*> loadedShaders;
 	~ResourceManager();
 	void Init();
 	static ResourceManager* getInstance();
