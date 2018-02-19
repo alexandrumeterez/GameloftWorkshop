@@ -2,7 +2,7 @@
 <resourceManager>
 	<models>
 		<model id="1">
-			<path>../Resources/Models/witch.nfg</path>
+			<path>../Resources/Models/croco.nfg</path>
 		</model>
 		<model id="5">
 			<path>../Resources/Models/bila.nfg</path>
@@ -10,15 +10,19 @@
 		<!-- si aici se adauga toate modelele -->
 	</models>
 	<shaders>
-		<shader id="10">
+		<shader id="1">
 			<vs>../Resources/Shaders/vertexShader.vs</vs>
 			<fs>../Resources/Shaders/fragmentShader.fs</fs>
 		</shader>
+    <shader id="3">
+      <vs>../Resources/Shaders/terrainVertexShader.vs</vs>
+      <fs>../Resources/Shaders/terrainFragmentShader.fs</fs>
+    </shader>
 		<!-- si aici se adauga toate shaderele -->
 	</shaders>
 	<textures>
 		<texture id="4" type="2d">
-			<path>../Resources/Textures/Witch.tga</path>			
+			<path>../Resources/Textures/Croco.tga</path>			
 			<min_filter>LINEAR</min_filter>
 			<mag_filter>LINEAR</mag_filter>
 			<wrap_s>CLAMP_TO_EDGE</wrap_s>
@@ -31,6 +35,13 @@
 			<wrap_s>CLAMP_TO_EDGE</wrap_s>
 			<wrap_t>CLAMP_TO_EDGE</wrap_t>
 		</texture>
+    <texture id="10" type="2d">
+      <path>../Resources/Textures/Terrain_blend_map.tga</path>
+      <min_filter>LINEAR</min_filter>
+      <mag_filter>LINEAR</mag_filter>
+      <wrap_s>REPEAT</wrap_s>
+      <wrap_t>REPEAT</wrap_t>
+    </texture>
 		<!-- si aici se adauga toate texturile -->
 	</textures>	
 </resourceManager>

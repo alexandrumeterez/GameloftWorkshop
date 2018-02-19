@@ -8,6 +8,7 @@ struct Vertex
 	Vector3 binorm;
 	Vector3 tgt;
 	Vector2 uv;
+	Vector2 uv_blend;
 	Vertex() {}
 
 	Vertex(const Vertex &v)
@@ -30,5 +31,8 @@ struct Vertex
 
 		uv.x = v.uv.x;
 		uv.y = v.uv.y;
+
+		uv_blend.x = v.uv_blend.x;
+		uv_blend.y = v.uv_blend.y;
 	}
 };

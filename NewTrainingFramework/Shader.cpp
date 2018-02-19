@@ -37,9 +37,14 @@ void Shader::Load()
 	}
 
 	programId = esLoadProgram(vertexShader, fragmentShader); //creeaza programul(face linkare la vs si fs)
+	heightUniform = glGetUniformLocation(programId, "u_height");
 	positionAttribute = glGetAttribLocation(programId, "a_posL"); //ia locatia var a_posL din shader ca sa pot sa transmit date in ea
 	matrixUniform = glGetUniformLocation(programId, "u_matrix");
-	textureUniform = glGetUniformLocation(programId, "u_texture");
+	textureUniform[0] = glGetUniformLocation(programId, "u_texture0");
+	textureUniform[1] = glGetUniformLocation(programId, "u_texture1");
+	textureUniform[2] = glGetUniformLocation(programId, "u_texture2");
+	textureUniform[3] = glGetUniformLocation(programId, "u_texture3");
 	uvAttribute = glGetAttribLocation(programId, "a_uv");
+	uvBlendAttribute = glGetAttribLocation(programId, "a_uv_blend");
 
 }

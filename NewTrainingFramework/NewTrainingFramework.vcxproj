@@ -178,6 +178,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release-Nvidia|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SurfaceObject.cpp" />
+    <ClCompile Include="TerrainObject.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +199,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SurfaceObject.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TerrainObject.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureResource.h" />
     <ClInclude Include="Vertex.h" />
@@ -225,6 +227,8 @@
     <None Include="..\Resources\Shaders\vertexShader.vs" />
     <None Include="..\..\Readme.doc" />
     <None Include="..\Resources\Textures\heightmap.raw" />
+    <None Include="terrainFragmentShader.fs" />
+    <None Include="terrainVertexShader.vs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilities\Utilities.vcxproj">
@@ -233,8 +237,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\Resources\XMLFiles\resourceManager.xml" />
-    <Xml Include="..\Resources\XMLFiles\sceneManager.xml" />
+    <Xml Include="..\Resources\XMLFiles\resourceManager.xml">
+      <SubType>Designer</SubType>
+    </Xml>
+    <Xml Include="..\Resources\XMLFiles\sceneManager.xml">
+      <SubType>Designer</SubType>
+    </Xml>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Resources\RapidXML\license.txt" />

@@ -7,7 +7,7 @@ varying vec2 v_uv;
 
 void main()
 {
-gl_Position = u_matrix * vec4(a_posL, 1.0);
-v_uv = a_uv;
+	gl_Position = u_matrix * vec4(a_posL, 1.0);
+	v_uv = a_uv;
 }
    

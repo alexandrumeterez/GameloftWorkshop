@@ -12,36 +12,23 @@
 #include "ResourceManager.h"
 #include "SceneManager.h"
 
-GLuint textureUniform;
-//Shaders myShaders;
+
 GLfloat alpha = 0.0f;
-bool wired = false;
 int width, height, bpp;
-GLuint format;
-Camera cam(Vector3(0.0f, 0.0f, -1.0f), Vector3(0.0f, 0.0f, 0.0f), Vector3(0.0f, 1.0f, 0.0f), 1.0f, 0.5f, 0.2f, 5000.0f, 45.0f);
 float timeLimit = 0.05f;
 float cumulativeDeltaTime = 0.0f;
 
-Model *model;
-Shader *shader;
-Texture *texture;
 int Init(ESContext *esContext)
 {
 	ResourceManager::getInstance()->Init();
-
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f); //set background color
-	glEnable(GL_DEPTH_TEST);
-
-	std::cout << ResourceManager::getInstance()->modelResourcesMap.at(1) << std::endl;
-	model = ResourceManager::getInstance()->loadModel(ResourceManager::getInstance()->modelResourcesMap.at(1));
-	shader = ResourceManager::getInstance()->loadShader(ResourceManager::getInstance()->shaderResourcesMap.at(10));
-	texture = ResourceManager::getInstance()->loadTexture(ResourceManager::getInstance()->textureResourcesMap.at(4));
-
+	SceneManager::getInstance()->Init();
+	
 	return 0;
 }
 
 void Draw(ESContext *esContext)
 {
+	/*
 	Matrix P;
 	P.SetPerspective(cam.getFOV(), (GLfloat)Globals::screenWidth / Globals::screenHeight, cam.getNearCam(), cam.getFarCam());
 	Matrix mvp = cam.getViewMatrix() * P;
@@ -96,18 +83,21 @@ void Draw(ESContext *esContext)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface); //desenez pe un buffer, il afisez, fac swap frameul urmator
-
+	*/
+	SceneManager::getInstance()->Draw();
+	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface); //desenez pe un buffer, il afisez, fac swap frameul urmator
 }
 
 void Update(ESContext *esContext, float deltaTime)
 {
+	
+	
 	//Limitare de framerate
 	//Adun la cumulativ pana cand sare de limita; cand sare de limita, il dau inapoi cu limita
 	cumulativeDeltaTime += deltaTime;
 	if (cumulativeDeltaTime >= timeLimit)
 	{
-		cam.setDeltaTime(cumulativeDeltaTime);
-		std::cout << cumulativeDeltaTime << std::endl;
+		SceneManager::getInstance()->Update(cumulativeDeltaTime);
 
 		cumulativeDeltaTime -= timeLimit;
 	}
@@ -121,46 +111,41 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 	switch (key)
 	{
 	case 'W':
-		cam.moveOz(1);
+		SceneManager::getInstance()->cam->moveOz(1);
 		break;
 	case 'S':
-		cam.moveOz(-1);
+		SceneManager::getInstance()->cam->moveOz(-1);
+		std::cout << "Z: " << SceneManager::getInstance()->cam->getPosition().z << std::endl;
 		break;
 	case 'D':
-		cam.moveOx(1);
+		SceneManager::getInstance()->cam->moveOx(1);
 		break;
 	case 'A':
-		cam.moveOx(-1);
+		SceneManager::getInstance()->cam->moveOx(-1);
 		break;
 	case 'Q':
-		cam.moveOy(1);
+		SceneManager::getInstance()->cam->moveOy(1);
 		break;
 	case 'E':
-		cam.moveOy(-1);
+		SceneManager::getInstance()->cam->moveOy(-1);
 		break;
 	case VK_UP:
-		cam.rotateOz(1);
+		SceneManager::getInstance()->cam->rotateOz(1);
 		break;
 	case VK_DOWN:
-		cam.rotateOz(-1);
+		SceneManager::getInstance()->cam->rotateOz(-1);
 		break;
 	case VK_RIGHT:
-		cam.rotateOy(1);
+		SceneManager::getInstance()->cam->rotateOy(1);
 		break;
 	case VK_LEFT:
-		cam.rotateOy(-1);
+		SceneManager::getInstance()->cam->rotateOy(-1);
 		break;
 	case 'Z':
-		cam.rotateOx(-1);
+		SceneManager::getInstance()->cam->rotateOx(-1);
 		break;
 	case 'X':
-		cam.rotateOx(1);
-		break;
-	case 'T':
-		wired = true;
-		break;
-	case 'Y':
-		wired = false;
+		SceneManager::getInstance()->cam->rotateOx(1);
 		break;
 	default:;
 	}
@@ -170,14 +155,13 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 
 void CleanUp()
 {
-	glDeleteBuffers(1, &model->vboId);
+	//glDeleteBuffers(1, &model->vboId);
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//identifying memory leaks
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-	model;
 	ESContext esContext;
 
 	esInitContext(&esContext);

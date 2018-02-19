@@ -1,1 +1,11 @@
-﻿  Utilities.vcxproj -> D:\Facultate\Gameloft\NewTrainingFramework_2015_REMAKE\\BIN-Nvidia\Utilities.lib
+﻿  stdafx.cpp
+  esUtil_win.cpp
+  esUtil.cpp
+  esShader.cpp
+  TGA.cpp
+  Math.cpp
+d:\facultate\gameloft\newtrainingframework_2015_remake\utilities\math.cpp(10): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\utilities\math.cpp(104): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\utilities\math.cpp(208): warning C4244: 'return': conversion from 'double' to 'GLfloat', possible loss of data
+  Generating Code...
+  Utilities.vcxproj -> D:\Facultate\Gameloft\NewTrainingFramework_2015_REMAKE\\BIN-Nvidia\Utilities.lib

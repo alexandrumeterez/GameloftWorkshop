@@ -103,20 +103,11 @@ void Model::Load()
 		indices.push_back(stoi(parts.at(0)));
 		indices.push_back(stoi(parts.at(1)));
 		indices.push_back(stoi(parts.at(2)));
-
-		wiredIndices.push_back(stoi(parts.at(0)));
-		wiredIndices.push_back(stoi(parts.at(1)));
-		wiredIndices.push_back(stoi(parts.at(1)));
-		wiredIndices.push_back(stoi(parts.at(2)));
-		wiredIndices.push_back(stoi(parts.at(2)));
-		wiredIndices.push_back(stoi(parts.at(0)));
 	}
 
 	//primul, al doilea de 2 ori, al 3 lea de 2 ori, primu
 
 	glGenBuffers(1, &iboId);
-
-	glGenBuffers(1, &wiredIboId);
 
 	glGenBuffers(1, &vboId);
 
@@ -127,10 +118,5 @@ void Model::Load()
 	glBindBuffer(GL_ARRAY_BUFFER, vboId);
 	glBufferData(GL_ARRAY_BUFFER, points.size() * sizeof(Vertex), &(points)[0], GL_STATIC_DRAW); //Static draw -> nu mi modifica bufferul
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, wiredIboId);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, wiredIndices.size() * sizeof(Vertex), &(wiredIndices)[0], GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 }

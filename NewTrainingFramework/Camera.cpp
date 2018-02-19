@@ -1,9 +1,18 @@
 #include "stdafx.h"
 #include "Camera.h"
-
+#include "Globals.h"
 
 Camera::Camera()
 {
+	position = Vector3(0.0f, 0.0f, 0.1f);
+	target = Vector3(0.0f, 0.0f, 0.0f);
+	up = Vector3(0.0f, 1.0f, 0.0f);
+	moveSpeed = 10.0f;
+	rotateSpeed = 0.9f;
+	nearCam = 0.2f;
+	farCam = 5000.0f;
+	FOV = 45.0f;
+	updateWorldView();
 }
 
 Camera::Camera(Vector3 position_, Vector3 target_, Vector3 up_, GLfloat moveSpeed_, GLfloat rotateSpeed_, GLfloat nearCam_, GLfloat farCam_, GLfloat FOV_)
@@ -16,6 +25,7 @@ Camera::Camera(Vector3 position_, Vector3 target_, Vector3 up_, GLfloat moveSpee
 	nearCam = nearCam_;
 	farCam = farCam_;
 	FOV = FOV_;
+	P.SetPerspective(FOV, (GLfloat)Globals::screenWidth / Globals::screenHeight, nearCam, farCam);
 }
 
 void Camera::calculateAxis()
@@ -117,6 +127,11 @@ Matrix Camera::getWorldMatrix()
 	return worldMatrix;
 }
 
+Matrix Camera::getPerspectiveMatrix()
+{
+	return P;
+}
+
 GLfloat Camera::getFOV()
 {
 	return FOV;
@@ -135,6 +150,11 @@ GLfloat Camera::getFarCam()
 void Camera::setDeltaTime(GLfloat deltaTime_)
 {
 	deltaTime = deltaTime_;
+}
+
+Vector3 Camera::getPosition()
+{
+	return position;
 }
 
 Camera::~Camera()

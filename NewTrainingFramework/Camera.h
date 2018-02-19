@@ -16,6 +16,7 @@ class Camera
 	Vector3 xAxis;
 	Vector3 yAxis;
 	Vector3 zAxis;
+	Matrix P;
 	Matrix viewMatrix, worldMatrix;
 public:
 	void moveOx(int);
@@ -31,9 +32,10 @@ public:
 	GLfloat getFOV();
 	GLfloat getNearCam();
 	GLfloat getFarCam();
+	Vector3 getPosition();
 	Matrix getViewMatrix();
 	Matrix getWorldMatrix();
-
+	Matrix getPerspectiveMatrix();
 	Camera();
 	Camera(Vector3 position, Vector3 target, Vector3 up, GLfloat moveSpeed, GLfloat rotateSpeed, GLfloat nearCam, GLfloat farCam, GLfloat FOV);
 	~Camera();

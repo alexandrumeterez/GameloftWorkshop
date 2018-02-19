@@ -26,7 +26,7 @@
 				<y>1</y>
 				<z>0</z>
 			</up>
-			<translationSpeed>10</translationSpeed>
+			<translationSpeed>50</translationSpeed>
 			<rotationSpeed>0.3</rotationSpeed>
 			<fov>45</fov>
 			<near>0.2</near>
@@ -40,14 +40,13 @@
 	<objects>
 		<object id="1">
 			<model>1</model><!-- id model -->
-			<shader>3</shader><!-- id shader -->
+			<shader>1</shader><!-- id shader -->
 			<type>normal</type>
 			<depthTest>true</depthTest>
 			<blend>true</blend>
 			<name>Crocodil_verde</name><!-- optional -->
 			<textures>
-				<texture id="8"/>
-				<texture id="14"/>
+				<texture id="4"/>
 			</textures>
 			<position><!-- translatia -->
 				<x>20.5</x>
@@ -77,49 +76,8 @@
 				<light>1</light>
 			</lights>
 		</object>
-		
-		
-		<object id="8">
-			<model>generated</model>
-			<shader>8</shader>
-			<type>surface</type>
-			<wired/>
-			<depthTest>true</depthTest>
-			<blend>false</blend>
-			<name>Grid</name>
-			<color>
-				<r>1.0</r>
-				<g>1.0</g>
-				<b>1.0</b>
-			</color>
-			<position>
-				<x>1.5</x>
-				<y>2.4</y>
-				<z>7</z>
-			</position>
-			<rotation>
-				<x>0.0</x>
-				<y>0.0</y>
-				<z>0.0</z>
-			</rotation>
-			<scale>
-				<x>2.0</x>
-				<y>2.0</y>
-				<z>2.0</z>
-			</scale>
-			<trajectory type="linear" iteration="infinite" direction="alternate">
-			<!-- startPoint e chiar Pos -->
-				<endPoint>
-					<x>0.5</x>
-					<y>100.0</y>
-					<z>1.0</z>				
-				</endPoint>
-				<speed>0.1</speed>
-			</trajectory>
-			<lights>
-				<light>1</light>
-			</lights>
-		</object>
+
+
 	</objects>
 	
 

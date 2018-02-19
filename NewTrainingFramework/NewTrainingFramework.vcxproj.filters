@@ -66,6 +66,9 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TerrainObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Globals.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="..\Resources\RapidXML\rapidxml_utils.hpp">
       <Filter>Resources\RapidXML</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +198,12 @@
       <Filter>Resources\Shaders</Filter>
     </None>
     <None Include="..\Resources\Shaders\vertexShader.vs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="terrainVertexShader.vs">
+      <Filter>Resources\Shaders</Filter>
+    </None>
+    <None Include="terrainFragmentShader.fs">
       <Filter>Resources\Shaders</Filter>
     </None>
   </ItemGroup>
