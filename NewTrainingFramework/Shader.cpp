@@ -32,7 +32,6 @@ void Shader::Load()
 
 	if (fragmentShader == 0) //daca a esuat
 	{
-		glDeleteShader(vertexShader);
 		throw;
 	}
 

@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "TerrainObject.h"
+#include "SceneManager.h"
 #include <cmath>
 
 
 
-TerrainObject::TerrainObject(int cellNumber, float cellSize, float offsetY, std::string modelType) : cellNumber(cellNumber), cellSize(cellSize), offsetY(offsetY), modelType(modelType)
+TerrainObject::TerrainObject(int cellNumber, float cellSize, float offsetY, std::string modelType, Camera* activeCamera) : cellNumber(cellNumber), cellSize(cellSize), offsetY(offsetY), modelType(modelType)
 {
+	followingCam = activeCamera;
 	center = followingCam->getPosition();
 	loadedModel = new Model();
 
@@ -31,6 +33,7 @@ TerrainObject::TerrainObject(int cellNumber, float cellSize, float offsetY, std:
 		{
 			for (unsigned int j = 0; j < cellNumber; j++)
 			{
+				loadedModel->indices.push_back(i * (cellNumber + 1) + j);
 				loadedModel->indices.push_back((i + 1) * (cellNumber + 1) + j);
 				loadedModel->indices.push_back(i * (cellNumber + 1) + j + 1);
 				loadedModel->indices.push_back(i * (cellNumber + 1) + j + 1);
@@ -52,6 +55,7 @@ TerrainObject::TerrainObject(int cellNumber, float cellSize, float offsetY, std:
 
 void TerrainObject::Update()
 {
+	SceneObject::Update();
 	if (abs(followingCam->getPosition().z - center.z) > cellSize && followingCam->getPosition().z > center.z)
 	{
 		for (int i = 0; i < loadedModel->points.size(); i++)
@@ -71,14 +75,14 @@ void TerrainObject::Update()
 		center.z -= cellSize;
 	}
 
-	if (abs(followingCam->getPosition().x - center.x) > cellSize && followingCam->getPosition().x < center.x)
+	if (abs(followingCam->getPosition().x - center.x) > cellSize && followingCam->getPosition().x > center.x)
 	{
 		for (int i = 0; i < loadedModel->points.size(); i++)
 		{
 			loadedModel->points[i].pos.x += cellSize;
 			loadedModel->points[i].uv_blend.y += 1.0 / cellNumber;
 		}
-		center.x -= cellSize;
+		center.x += cellSize;
 	}
 	else if (abs(followingCam->getPosition().x - center.x) > cellSize && followingCam->getPosition().x < center.x)
 	{
@@ -89,6 +93,7 @@ void TerrainObject::Update()
 		}
 		center.x -= cellSize;
 	}
+	SceneObject::Update();
 	glGenBuffers(1, &loadedModel->vboId);
 	glBindBuffer(GL_ARRAY_BUFFER, loadedModel->vboId);
 	glBufferData(GL_ARRAY_BUFFER, loadedModel->points.size() * sizeof(Vertex), loadedModel->points.data(), GL_STATIC_DRAW);

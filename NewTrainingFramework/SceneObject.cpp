@@ -81,7 +81,6 @@ void SceneObject::Update()
 {
 	followingCam->updateWorldView();
 	Matrix m, p;
-	std::cout << scale.x << std::endl;
 	p = p.SetScale(Vector3(scale.x, scale.y, scale.z));
 	p = p * m.SetRotationX(rotation.x);
 	p = p * m.SetRotationY(rotation.y);

@@ -110,7 +110,6 @@ void SceneManager::parseCamerasAndActiveCamera()
 			std::string camNear = cameraNode->first_node("near")->value();
 			nearBase = std::atof(camNear.c_str());
 
-			std::cout << camNear << std::endl;
 			//Parse camera far
 			std::string camFar = cameraNode->first_node("far")->value();
 			farBase = std::atof(camFar.c_str());
@@ -168,6 +167,9 @@ void SceneManager::Init()
 			//Scot tipul obiectului
 			std::string objectType = objectNode->first_node("type")->value();
 
+			//Scot id-ul obiectului
+			std::string modelId = objectNode->first_node("model")->value();
+
 			if (objectType == "terrain")
 			{
 				
@@ -186,17 +188,28 @@ void SceneManager::Init()
 				xml_node<> *offsetYNode = objectNode->first_node("offsetY");
 				std::string offsetYString = offsetYNode->value();
 				float offsetY = std::atof(offsetYString.c_str());
+				
+				//Parse height
+				xml_node<> *rHeight = objectNode->first_node("height")->first_node("r");
+				xml_node<> *gHeight = objectNode->first_node("height")->first_node("g");
+				xml_node<> *bHeight = objectNode->first_node("height")->first_node("b");
+				std::string rString = rHeight->value();
+				std::string gString = gHeight->value();
+				std::string bString = bHeight->value();
+				int r = std::atoi(rString.c_str());
+				int g = std::atoi(gString.c_str());
+				int b = std::atoi(bString.c_str());
 
-				TerrainObject *t = new TerrainObject(numberOfCells, cellSize, offsetY, objectType);
+
+
+				TerrainObject *t = new TerrainObject(numberOfCells, cellSize, offsetY, modelId, cameraMap.at(activeCamera));
+				t->setHeight(Vector3(r, g, b));
 				so = (SceneObject*)t;
 			}
 			else if (objectType == "normal")
 			{
 				so = new SceneObject();
 			}
-
-			//Scot id-ul obiectului
-			std::string modelId = objectNode->first_node("model")->value();
 
 			//Scot shader-ul obiectului
 			std::string shaderId = objectNode->first_node("shader")->value();
@@ -294,7 +307,7 @@ void SceneManager::Init()
 		}
 	}
 
-	glClearColor(r, g, b, 0.0f);
+	//glClearColor(r, g, b, 0.0f);
 	glEnable(GL_DEPTH_TEST);
 
 
@@ -303,13 +316,14 @@ void SceneManager::Init()
 		if (it->second->type == "normal")
 		{
 			it->second->loadedModel = ResourceManager::getInstance()->loadModel(ResourceManager::getInstance()->modelResourcesMap.at(std::atoi(it->second->modelId.c_str())));
+		}
 			it->second->loadedShader = ResourceManager::getInstance()->loadShader(ResourceManager::getInstance()->shaderResourcesMap.at(std::atoi(it->second->shaderId.c_str())));
 			for (std::vector<unsigned int>::iterator textureIdIterator = it->second->textures.begin(); textureIdIterator != it->second->textures.end(); ++textureIdIterator)
 			{
 				Texture* temp = ResourceManager::getInstance()->loadTexture(ResourceManager::getInstance()->textureResourcesMap.at(*textureIdIterator));
 				it->second->loadedTextures.push_back(temp);
 			}
-		}
+	
 	}
 
 	cam = cameraMap.at(activeCamera);
@@ -318,11 +332,11 @@ void SceneManager::Init()
 
 void SceneManager::Draw()
 {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //curatam bufferul
 	
 	for (std::map<unsigned int, SceneObject*>::iterator it = sceneObjectVector.begin(); it != sceneObjectVector.end(); ++it)
 	{
 		//it->second->followingCam = cam;
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //curatam bufferul
 		it->second->Draw();
 	}
 }

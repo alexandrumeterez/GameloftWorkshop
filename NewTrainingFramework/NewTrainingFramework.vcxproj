@@ -224,11 +224,11 @@
     <None Include="..\Resources\Models\Woman2.nfg" />
     <None Include="..\Resources\RapidXML\manual.html" />
     <None Include="..\Resources\Shaders\fragmentShader.fs" />
+    <None Include="..\Resources\Shaders\terrainFragmentShader.fs" />
+    <None Include="..\Resources\Shaders\terrainVertexShader.vs" />
     <None Include="..\Resources\Shaders\vertexShader.vs" />
     <None Include="..\..\Readme.doc" />
     <None Include="..\Resources\Textures\heightmap.raw" />
-    <None Include="terrainFragmentShader.fs" />
-    <None Include="terrainVertexShader.vs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilities\Utilities.vcxproj">

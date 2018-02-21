@@ -28,62 +28,6 @@ int Init(ESContext *esContext)
 
 void Draw(ESContext *esContext)
 {
-	/*
-	Matrix P;
-	P.SetPerspective(cam.getFOV(), (GLfloat)Globals::screenWidth / Globals::screenHeight, cam.getNearCam(), cam.getFarCam());
-	Matrix mvp = cam.getViewMatrix() * P;
-	Matrix m;
-	m.SetScale(0.01f, 0.01f, 0.01f);
-	mvp = m * mvp;
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //curatam bufferul
-
-	glUseProgram(shader->programId); //spunem ce shader folosim
-
-	if (wired == false)
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, model->vboId); //deschide bufferul
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->iboId);
-	}
-	else
-	{
-		glBindBuffer(GL_ARRAY_BUFFER, model->vboId); //deschide bufferul
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->wiredIboId);
-	}
-
-	glBindTexture(GL_TEXTURE_2D, texture->textureId);
-
-	if (shader->positionAttribute != -1)
-	{
-		glEnableVertexAttribArray(shader->positionAttribute);
-		glVertexAttribPointer(shader->positionAttribute, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	}
-
-	if (shader->uvAttribute != -1)
-	{
-		glEnableVertexAttribArray(shader->uvAttribute);
-		glVertexAttribPointer(shader->uvAttribute, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)(4 * sizeof(Vector3)));
-	}
-
-	if (shader->matrixUniform != -1)
-	{
-		glUniformMatrix4fv(shader->matrixUniform, 1, GL_FALSE, (GLfloat *)mvp.m);
-	}
-
-	if (shader->textureUniform != -1)
-	{
-		glActiveTexture(GL_TEXTURE0);
-		glUniform1i(textureUniform, 0);
-	}
-	if (wired == false)
-		glDrawElements(GL_TRIANGLES, model->indices.size(), GL_UNSIGNED_INT, (void *)0);
-	else
-		glDrawElements(GL_LINES, model->wiredIndices.size(), GL_UNSIGNED_INT, (void *)0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	glBindTexture(GL_TEXTURE_2D, 0);
-	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface); //desenez pe un buffer, il afisez, fac swap frameul urmator
-	*/
 	SceneManager::getInstance()->Draw();
 	eglSwapBuffers(esContext->eglDisplay, esContext->eglSurface); //desenez pe un buffer, il afisez, fac swap frameul urmator
 }
@@ -115,7 +59,6 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 		break;
 	case 'S':
 		SceneManager::getInstance()->cam->moveOz(-1);
-		std::cout << "Z: " << SceneManager::getInstance()->cam->getPosition().z << std::endl;
 		break;
 	case 'D':
 		SceneManager::getInstance()->cam->moveOx(1);

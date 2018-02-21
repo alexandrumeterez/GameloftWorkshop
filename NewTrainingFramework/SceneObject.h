@@ -28,8 +28,8 @@ public:
 		Model* loadedModel;
 		Shader* loadedShader;
 		std::vector<Texture*> loadedTextures;
-		void Draw();
-		void Update();
+		virtual void Draw();
+		virtual void Update();
 		void doCommon();
 		Matrix mvp;
 		std::vector<unsigned int> lights;

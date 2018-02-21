@@ -38,44 +38,42 @@
 
 	
 	<objects>
-		<object id="1">
-			<model>1</model><!-- id model -->
-			<shader>1</shader><!-- id shader -->
-			<type>normal</type>
-			<depthTest>true</depthTest>
-			<blend>true</blend>
-			<name>Crocodil_verde</name><!-- optional -->
+      <object id="9">
+			<model>generated</model>
+			<shader>3</shader>
+			<type>terrain</type>
+			<cells>20</cells>
+			<size>5</size>
+			<offsetY>-5</offsetY>
 			<textures>
-				<texture id="4"/>
+				<texture id="6"/>
+				<texture id="7"/>
+				<texture id="9"/>
+				<texture id="10"/>
 			</textures>
-			<position><!-- translatia -->
-				<x>20.5</x>
-				<y>27</y>
-				<z>21.22</z>
+			<position>
+				<x>0.0</x>
+				<y>0.0</y>
+				<z>0.0</z>
 			</position>
 			<rotation>
-				<x>0.5</x>
-				<y>1.4</y>
-				<z>1</z>
+				<x>0.0</x>
+				<y>0.0</y>
+				<z>0.0</z>
 			</rotation>
 			<scale>
 				<x>1.0</x>
 				<y>1.0</y>
 				<z>1.0</z>
 			</scale>
-			<selfRotateSpeed>0.1</selfRotateSpeed>
-			<followingCamera>
-				<cameras>
-					<camera>1</camera>
-				</cameras>
-				<ox/>
-				<oy/>
-				<oz/>
-			</followingCamera>
-			<lights>
-				<light>1</light>
-			</lights>
+			<depthTest>false</depthTest>
+			<height> 
+				<r>3</r> 
+				<g>2</g> 
+				<b>-1</b> 
+			</height>
 		</object>
+    
 
 
 	</objects>
