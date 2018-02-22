@@ -54,16 +54,16 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 	//cam.moveOZ(1) break
 	switch (key)
 	{
-	case 'W':
+	case 'S':
 		SceneManager::getInstance()->cam->moveOz(1);
 		break;
-	case 'S':
+	case 'W':
 		SceneManager::getInstance()->cam->moveOz(-1);
 		break;
-	case 'D':
+	case 'A':
 		SceneManager::getInstance()->cam->moveOx(1);
 		break;
-	case 'A':
+	case 'D':
 		SceneManager::getInstance()->cam->moveOx(-1);
 		break;
 	case 'Q':
@@ -78,10 +78,10 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 	case VK_DOWN:
 		SceneManager::getInstance()->cam->rotateOz(-1);
 		break;
-	case VK_RIGHT:
+	case VK_LEFT:
 		SceneManager::getInstance()->cam->rotateOy(1);
 		break;
-	case VK_LEFT:
+	case VK_RIGHT:
 		SceneManager::getInstance()->cam->rotateOy(-1);
 		break;
 	case 'Z':
@@ -89,6 +89,9 @@ void Key(ESContext *esContext, unsigned char key, bool bIsPressed)
 		break;
 	case 'X':
 		SceneManager::getInstance()->cam->rotateOx(1);
+		break;
+	case VK_ESCAPE:
+		exit(0);
 		break;
 	default:;
 	}

@@ -172,8 +172,6 @@ void SceneManager::Init()
 
 			if (objectType == "terrain")
 			{
-				
-
 				// Parse number of cells
 				xml_node<> *cellNumber = objectNode->first_node("cells");
 				std::string cellNumberString = cellNumber->value();
@@ -307,7 +305,7 @@ void SceneManager::Init()
 		}
 	}
 
-	//glClearColor(r, g, b, 0.0f);
+	glClearColor(r, g, b, 0.0f);
 	glEnable(GL_DEPTH_TEST);
 
 

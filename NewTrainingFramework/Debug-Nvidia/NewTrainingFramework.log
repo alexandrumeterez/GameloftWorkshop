@@ -1,13 +1,26 @@
-﻿  TerrainObject.cpp
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(25): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(32): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(34): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(61): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(64): warning C4244: '-=': conversion from 'double' to 'GLfloat', possible loss of data
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(70): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(73): warning C4244: '+=': conversion from 'double' to 'GLfloat', possible loss of data
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(80): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(83): warning C4244: '+=': conversion from 'double' to 'GLfloat', possible loss of data
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(89): warning C4018: '<': signed/unsigned mismatch
-d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\terrainobject.cpp(92): warning C4244: '-=': conversion from 'double' to 'GLfloat', possible loss of data
+﻿  SceneManager.cpp
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(99): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(103): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(107): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(111): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(115): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(117): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(118): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(119): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(183): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(188): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(204): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(249): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(250): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(251): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(259): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(260): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(261): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(269): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(270): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(271): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\facultate\gameloft\newtrainingframework_2015_remake\newtrainingframework\scenemanager.cpp(279): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   NewTrainingFramework.vcxproj -> D:\Facultate\Gameloft\NewTrainingFramework_2015_REMAKE\\BIN-Nvidia\NewTrainingFramework.exe

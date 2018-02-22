@@ -69,6 +69,9 @@
     <ClCompile Include="TerrainObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SkyboxObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Globals.h">
@@ -132,6 +135,9 @@
       <Filter>Resources\RapidXML</Filter>
     </ClInclude>
     <ClInclude Include="TerrainObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
